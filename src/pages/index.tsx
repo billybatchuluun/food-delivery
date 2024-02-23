@@ -5,6 +5,7 @@ import { Footer } from "@/components/Footer";
 import { CategoryContainer } from "@/components/CategoryContainer";
 import { Desktop } from "@/components/Desktop";
 
+
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
@@ -17,7 +18,7 @@ export default function Home() {
         {/* <CategoryContainer /> */}
         <Desktop />
 
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </div>
   );

@@ -8,7 +8,7 @@ import { SignInIcon } from "@/svg/SignInIcon";
 export const TopBar = () => {
   return (
     <>
-      <div className="flex  items-center justify-between font-bold pl-[115px] pr-[115px] pt-2 pb-2">
+      <div className="flex  items-center justify-between font-bold px-[115px] pt-2 pb-2">
         <div className="flex gap-5">
           <div>
             <Icon />
