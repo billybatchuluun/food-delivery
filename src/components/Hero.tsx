@@ -1,14 +1,14 @@
 import React from "react";
 import { FastDelivery } from "./FastDelivery";
-import { DesktopMainPic } from "./DesktopMainPic";
+import { HeroMainPic } from "./HeroMainPic";
 import { SaleMeals } from "./SaleMeals";
 
-export const Desktop = () => {
+export const Hero = () => {
   return (
     <>
       <div>
         <div>
-          <DesktopMainPic />
+          <HeroMainPic />
         </div>
         <div>
           <FastDelivery />

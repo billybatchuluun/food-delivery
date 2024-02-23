@@ -1,19 +1,19 @@
 import React from "react";
 import { TopBar } from "@/components/TopBar";
-import { SignInWindow } from "@/components/SignInWindow";
+import { ForgotPasswordWindow } from "@/components/ForgotPasswordWindow";
 import { Footer } from "@/components/Footer";
 
-const Login = () => {
+const Forgotpass = () => {
   return (
     <>
       <div>
         <div>
           <TopBar />
-          <SignInWindow />
+          <ForgotPasswordWindow />
           <Footer />
         </div>
       </div>
     </>
   );
 };
-export default Login;
+export default Forgotpass;

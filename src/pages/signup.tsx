@@ -1,19 +1,19 @@
-import React from "react";
 import { TopBar } from "@/components/TopBar";
-import { SignInWindow } from "@/components/SignInWindow";
+import { RegisterWindow } from "@/components/RegisterWindow";
 import { Footer } from "@/components/Footer";
 
-const Login = () => {
+const Signup = () => {
   return (
     <>
       <div>
         <div>
           <TopBar />
-          <SignInWindow />
+          <RegisterWindow />
+
           <Footer />
         </div>
       </div>
     </>
   );
 };
-export default Login;
+export default Signup;

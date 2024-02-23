@@ -1,12 +1,12 @@
 import React from "react";
 
-export const DesktopMainPic = () => {
+export const HeroMainPic = () => {
   return (
     <div className=" flex bg-[#18BA51] text-white bg-[url('/BgPic.png')] h-[788px]">
       <div className="flex w-1/2 justify-center items-center">
-        <div className="flex  flex-col w-[384px] mt-[276px] ml-[120px] ">
+        <div className="flex  flex-col w-[384px] mt-[10px] ml-[120px] ">
           <div className="py-5">
-            <p className="text-[55px]">
+            <p className="text-[55px] leading-[49.5px]">
               Pinecone <br /> Food delivery
             </p>
           </div>
