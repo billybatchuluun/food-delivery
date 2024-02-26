@@ -149,11 +149,14 @@ export const SaleMeals = () => {
         </div>
       </div>
       <div>
-        <div>
-          <div>
+        <div className="flex ">
+          <div className="flex relative">
             {data.map((meal) => (
               <Card meal={meal} />
             ))}
+          </div>
+          <div className="flex bg-[#18BA51] items-center w-[69px] h-[35px] rounded-2xl px-4 py-1 border-white border absolute top-2 right-2">
+            <p className="text-lg text-white">20%</p>
           </div>
         </div>
       </div>
