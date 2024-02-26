@@ -1,10 +1,9 @@
 import React from "react";
-import { PlusIcon } from "@/svg/PlusIcon";
-import { GreenArrow } from "@/svg/GreenArrow";
+
 const data = [
   {
     id: 1,
-    foodName: "Өглөөний хоол",
+    foodName: "Artichokes - Knobless, White",
     price: 3625,
     img: "./Img1.jpeg",
     categoryName: "Temp Fencing, Decorative Fencing and Gates",
@@ -12,7 +11,7 @@ const data = [
   },
   {
     id: 2,
-    foodName: "Зайрмаг",
+    foodName: "Pastry - Lemon Danish - Mini",
     price: 5249,
     img: "./Img2.jpeg",
     categoryName: "Plumbing & Medical Gas",
@@ -20,7 +19,7 @@ const data = [
   },
   {
     id: 3,
-    foodName: "Өглөөний хоол",
+    foodName: "Olives - Black, Pitted",
     price: 5979,
     img: "./Img3.png",
     categoryName: "Asphalt Paving",
@@ -28,7 +27,7 @@ const data = [
   },
   {
     id: 4,
-    foodName: "Breakfast",
+    foodName: "Bread - Focaccia Quarter",
     price: 3126,
     img: "./Img4.png",
     categoryName: "Soft Flooring and Base",
@@ -134,9 +133,8 @@ const data = [
 
 export const Card = (props) => {
   const { meal } = props;
-
   return (
-    <div className="flex flex-col justify-evenly hover:text-xl ">
+    <div className="flex flex-col">
       <div className="flex relative ">
         <img
           className=" w-[282px] h-[186px] rounded-2xl hover:shadow-2xl"
@@ -148,44 +146,8 @@ export const Card = (props) => {
           </span>
         ) : null}
       </div>
-      <div className="font-bold ">{meal.foodName}</div>
+      <div className="font-bold">{meal.foodName}</div>
       <div className="text-[#18BA51] text-xl">{meal.price}₮</div>
     </div>
-  );
-};
-
-export const SaleMeals = () => {
-  return (
-    <>
-      <div className="px-[115px]">
-        <div className="flex items-center justify-between  py-4">
-          <div className="flex gap-1 items-center">
-            <div>
-              <PlusIcon />
-            </div>
-            <div>
-              <p className="text-[22px] font-bold"> Хямдралтай</p>
-            </div>
-          </div>
-          <div className="flex gap-3 items-center">
-            <div>
-              <p className="text-sm text-green-500">Бүгдийг харах</p>
-            </div>
-            <div>
-              <GreenArrow />
-            </div>
-          </div>
-        </div>
-        <div>
-          <div className="flex">
-            <div className="flex justify-between w-full gap-8">
-              {data.slice(0, 4).map((meal) => (
-                <Card meal={meal} />
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
   );
 };

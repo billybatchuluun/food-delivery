@@ -9,17 +9,17 @@ export const TopBar = () => {
   return (
     <>
       <div className="flex  items-center justify-between font-bold px-[115px] pt-2 pb-2">
-        <div className="flex gap-5">
+        <div className="flex gap-5 ">
           <div>
             <Icon />
           </div>
-          <button>
+          <button className="hover:text-green-500">
             <p>НҮҮР </p>
           </button>
-          <button>
+          <button className="hover:text-green-500">
             <p>ХООЛНЫ ЦЭС</p>
           </button>
-          <button>
+          <button className="hover:text-green-500">
             <p>ХҮРГЭЛТИЙН БҮС</p>
           </button>
         </div>
@@ -30,13 +30,13 @@ export const TopBar = () => {
           </div>
           <div className="flex gap-3 items-center">
             <Sags />
-            <button>
+            <button className="hover:text-green-500">
               <p>САГС</p>
             </button>
           </div>
           <div className="flex gap-3 items-center">
             <SignInIcon />
-            <button>
+            <button className="hover:text-green-500">
               <p>НЭВТРЭХ</p>
             </button>
           </div>
