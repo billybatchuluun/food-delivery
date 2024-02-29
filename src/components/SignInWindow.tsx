@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { EyeOff } from "@/svg/EyeOff";
 
 export const SignInWindow = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   return (
     <div className="flex flex-col  items-center p-9 gap-[48px]">
       <div className="flex flex-col items-center justify-center gap-[48px]">

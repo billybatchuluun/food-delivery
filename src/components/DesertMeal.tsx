@@ -35,7 +35,7 @@ const data = [
     discount: false,
   },
 ];
-export const Card = (props) => {
+export const Card = (props: { meal: any }) => {
   const { meal } = props;
 
   return (

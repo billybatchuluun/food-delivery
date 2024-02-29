@@ -66,7 +66,9 @@ export const MainCourseMeal = () => {
           </div>
           <div className="flex gap-3 items-center">
             <div>
-              <p className="text-sm text-green-500">Бүгдийг харах</p>
+              <a className="text-sm text-green-500" href="">
+                Бүгдийг харах
+              </a>
             </div>
             <div>
               <GreenArrow />

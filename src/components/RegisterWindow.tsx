@@ -1,7 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import { EyeOff } from "@/svg/EyeOff";
 
 export const RegisterWindow = () => {
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [password, setPassword] = useState("");
+  const [rePassword, setRePassword] = useState("");
+
+  const signUpUser = async () => {
+    try {
+      if (password === rePassword) {
+        const user = {
+          email,
+          name,
+          password,
+        };
+        const res = await fetch("http://localhost:8080/signup", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(user),
+        });
+        console.log(res);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
   return (
     <>
       <div className="flex flex-col p-9 gap-[48px]">
@@ -14,6 +38,9 @@ export const RegisterWindow = () => {
               <label>Нэр </label>
 
               <input
+                onChange={(e) => {
+                  setName(e.target.value);
+                }}
                 className="w-[385px] h-10 bg-stone-100 rounded-sm pl-5 "
                 type="search"
                 placeholder="Нэрээ оруулна уу"
@@ -23,24 +50,22 @@ export const RegisterWindow = () => {
               <label>И-мэйл </label>
 
               <input
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
                 className="w-[385px] h-10 bg-stone-100 rounded-sm pl-5 "
                 type="search"
                 placeholder="И-мэйл хаягаа оруулна уу"
               ></input>
             </div>
-            <div className="flex flex-col gap-2">
-              <label>Хаяг </label>
 
-              <input
-                className="w-[385px] h-10 bg-stone-100 rounded-sm pl-5 "
-                type="search"
-                placeholder="Та хаягаа оруулна уу"
-              ></input>
-            </div>
             <div className="flex flex-col gap-2">
               <label>Нууц үг </label>
               <div className="flex w-[385px] h-10 bg-stone-100 rounded-sm px-5 justify-between items-center">
                 <input
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                  }}
                   className="w-[385px] h-10 bg-stone-100"
                   type="search"
                   placeholder="Нууц үг"
@@ -52,6 +77,9 @@ export const RegisterWindow = () => {
               <label>Нууц үг </label>
               <div className="flex w-[385px] h-10 bg-stone-100 rounded-sm px-5 justify-between items-center">
                 <input
+                  onChange={(e) => {
+                    setRePassword(e.target.value);
+                  }}
                   className="w-[385px] h-10 bg-stone-100"
                   type="search"
                   placeholder="Нууц үг давтах"
@@ -68,7 +96,9 @@ export const RegisterWindow = () => {
           </div>
           <div className="flex flex-col gap-9">
             <div className="flex w-[385px] h-10 bg-stone-100 rounded-sm justify-center items-center">
-              <button className="">Бүртгүүлэх</button>
+              <button onClick={signUpUser} className="">
+                Бүртгүүлэх
+              </button>
             </div>
           </div>
         </div>

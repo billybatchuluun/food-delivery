@@ -13,15 +13,22 @@ export const TopBar = () => {
           <div>
             <Icon />
           </div>
-          <button className="hover:text-green-500">
-            <p>НҮҮР </p>
-          </button>
-          <button className="hover:text-green-500">
-            <p>ХООЛНЫ ЦЭС</p>
-          </button>
-          <button className="hover:text-green-500">
-            <p>ХҮРГЭЛТИЙН БҮС</p>
-          </button>
+          <a href="./">
+            <button className="hover:text-green-500">
+              <p>НҮҮР </p>
+            </button>
+          </a>
+          <a href="">
+            <button className="hover:text-green-500">
+              <p>ХООЛНЫ ЦЭС</p>
+            </button>
+          </a>
+
+          <a href="">
+            <button className="hover:text-green-500">
+              <p>ХҮРГЭЛТИЙН БҮС</p>
+            </button>
+          </a>
         </div>
         <div className="flex gap-5 items-center">
           <div className="flex py-2 px-4 gap-3 items-center border-black border rounded-md">

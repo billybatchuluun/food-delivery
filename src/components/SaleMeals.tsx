@@ -132,7 +132,7 @@ const data = [
   },
 ];
 
-export const Card = (props) => {
+export const Card = (props: { meal: any }) => {
   const { meal } = props;
 
   return (

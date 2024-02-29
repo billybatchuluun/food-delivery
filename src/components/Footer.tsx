@@ -14,24 +14,33 @@ export const Footer = () => {
             <p className="text-xl">Food Delivery</p>
           </div>
           <div className="flex justify-between underline">
-            <button>
-              <p>Нүүр</p>
-            </button>
+            <a href="./">
+              <button>
+                <p>Нүүр</p>
+              </button>
+            </a>
+
             <button>
               <p>Холбоо барих</p>
             </button>
             <button>
               <p>Хоолны цэс</p>
             </button>
-            <button>
-              <p>Үйлчилгээний нөхцөл</p>
-            </button>
-            <button>
-              <p>Хүргэлтийн бүс</p>
-            </button>
-            <button>
-              <p>Нууцлалын бодлого</p>
-            </button>
+            <a href="./term">
+              <button>
+                <p>Үйлчилгээний нөхцөл</p>
+              </button>
+            </a>
+            <a href="">
+              <button>
+                <p>Хүргэлтийн бүс</p>
+              </button>
+            </a>
+            <a href="./privacy">
+              <button>
+                <p>Нууцлалын бодлого</p>
+              </button>
+            </a>
           </div>
           <div className="flex p-1 gap-5 justify-center items-center">
             <a href="">
