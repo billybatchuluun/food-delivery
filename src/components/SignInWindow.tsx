@@ -44,7 +44,9 @@ export const SignInWindow = () => {
           <p className="text-sm ">Эсвэл</p>
         </div>
         <div className="flex w-[385px] h-10 rounded-sm border-green-400 border justify-center items-center">
-          <button className="">Бүртгүүлэх</button>
+          <a href="./signup">
+            <button className="">Бүртгүүлэх</button>
+          </a>
         </div>
       </div>
     </div>

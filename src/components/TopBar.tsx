@@ -43,9 +43,11 @@ export const TopBar = () => {
           </div>
           <div className="flex gap-3 items-center">
             <SignInIcon />
-            <button className="hover:text-green-500">
-              <p>НЭВТРЭХ</p>
-            </button>
+            <a href="./login">
+              <button className="hover:text-green-500">
+                <p>НЭВТРЭХ</p>
+              </button>
+            </a>
           </div>
         </div>
       </div>

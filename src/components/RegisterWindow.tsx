@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { EyeOff } from "@/svg/EyeOff";
+import { useRouter } from "next/router";
 
 export const RegisterWindow = () => {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [rePassword, setRePassword] = useState("");
+  const router = useRouter();
 
   const signUpUser = async () => {
     try {
@@ -21,6 +23,7 @@ export const RegisterWindow = () => {
           body: JSON.stringify(user),
         });
         console.log(res);
+        router.push("/login");
       }
     } catch (error) {
       console.error(error);
