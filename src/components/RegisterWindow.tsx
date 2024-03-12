@@ -1,33 +1,45 @@
 import React, { useState } from "react";
 import { EyeOff } from "@/svg/EyeOff";
 import { useRouter } from "next/router";
+import { useFormik, validateYupSchema } from "formik";
+import * as Yup from "yup";
+import { signUpValidation } from "@/pages/signUpValidation";
 
 export const RegisterWindow = () => {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [rePassword, setRePassword] = useState("");
-  const router = useRouter();
+  const { values, errors, handleChange, handleBlur, handleSubmit } = useFormik({
+    initialValues: {
+      name: "",
+      email: "",
+      password: "",
+      rePassword: "",
+    },
+    validationSchema: signUpValidation,
+    onSubmit: () => {},
+  });
 
   const signUpUser = async () => {
-    try {
-      if (password === rePassword) {
-        const user = {
-          email,
-          name,
-          password,
-        };
-        const res = await fetch("http://localhost:8080/signup", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(user),
-        });
-        console.log(res);
-        router.push("/login");
-      }
-    } catch (error) {
-      console.error(error);
-    }
+    // try {
+    //   if (password === rePassword) {
+    //     const user = {
+    //       email,
+    //       name,
+    //       password,
+    //     };
+    //     const res = await fetch("http://localhost:8080/signup", {
+    //       method: "POST",
+    //       headers: { "Content-Type": "application/json" },
+    //       body: JSON.stringify(user),
+    //     });
+    //     console.log(res);
+    //     router.push("/login");
+    //   }
+    // } catch (error) {
+    //   console.error(error);
+    // }
   };
   return (
     <>
@@ -41,53 +53,71 @@ export const RegisterWindow = () => {
               <label>Нэр </label>
 
               <input
-                onChange={(e) => {
-                  setName(e.target.value);
-                }}
+                id="name"
+                value={values.name}
+                onChange={handleChange}
+                onBlur={handleBlur}
                 className="w-[385px] h-10 bg-stone-100 rounded-sm pl-5 "
-                type="search"
+                type="text"
                 placeholder="Нэрээ оруулна уу"
-              ></input>
+              />
+              {errors.name && (
+                <p className="text-red-500 text-[12px]">{errors.name}</p>
+              )}
             </div>
             <div className="flex flex-col gap-2">
               <label>И-мэйл </label>
 
               <input
-                onChange={(e) => {
-                  setEmail(e.target.value);
-                }}
+                id="email"
+                value={values.email}
+                onChange={handleChange}
+                onBlur={handleBlur}
                 className="w-[385px] h-10 bg-stone-100 rounded-sm pl-5 "
                 type="search"
                 placeholder="И-мэйл хаягаа оруулна уу"
-              ></input>
+              />
+              {errors.email && (
+                <p className="text-red-500 text-[12px]">{errors.email}</p>
+              )}
             </div>
 
             <div className="flex flex-col gap-2">
               <label>Нууц үг </label>
               <div className="flex w-[385px] h-10 bg-stone-100 rounded-sm px-5 justify-between items-center">
                 <input
-                  onChange={(e) => {
-                    setPassword(e.target.value);
-                  }}
+                  id="password"
+                  value={values.password}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
                   className="w-[385px] h-10 bg-stone-100"
                   type="search"
                   placeholder="Нууц үг"
-                ></input>
+                />
                 <EyeOff />
+                {errors.password && (
+                  <p className="text-red-500 text-[12px]">{errors.password}</p>
+                )}
               </div>
             </div>
             <div className="flex flex-col gap-2">
               <label>Нууц үг </label>
               <div className="flex w-[385px] h-10 bg-stone-100 rounded-sm px-5 justify-between items-center">
                 <input
-                  onChange={(e) => {
-                    setRePassword(e.target.value);
-                  }}
+                  id="rePassword"
+                  value={values.rePassword}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
                   className="w-[385px] h-10 bg-stone-100"
                   type="search"
                   placeholder="Нууц үг давтах"
-                ></input>
+                />
                 <EyeOff />
+                {errors.rePassword && (
+                  <p className="text-red-500 text-[12px]">
+                    {errors.rePassword}
+                  </p>
+                )}
               </div>
             </div>
           </div>

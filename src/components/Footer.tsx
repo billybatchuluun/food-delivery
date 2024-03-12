@@ -13,7 +13,7 @@ export const Footer = () => {
             <IconWhite />
             <p className="text-xl">Food Delivery</p>
           </div>
-          <div className="flex justify-between underline">
+          <div className="flex justify-center underline gap-[120px]">
             <a href="./">
               <button>
                 <p>Нүүр</p>

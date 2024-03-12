@@ -6,7 +6,7 @@ import { FastDIcon3 } from "@/svg/FastDIcon3";
 export const FastDelivery = () => {
   return (
     <>
-      <div className="flex mt-[50px] mb-[50px] px-[115px] justify-evenly">
+      <div className="flex mt-[50px] mb-[50px]  gap-10">
         <div className="flex flex-col w-[265px]  p-4 rounded-xl border-black-100 border gap-4 shadow-2xl hover:bg-gray-100 cursor-pointer">
           <div>
             <FastDIcon1 />

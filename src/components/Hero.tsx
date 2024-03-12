@@ -13,19 +13,19 @@ export const Hero = () => {
         <div>
           <HeroMainPic />
         </div>
-        <div>
+        <div className="flex justify-center">
           <FastDelivery />
         </div>
-        <div>
+        <div className="flex justify-center">
           <SaleMeals />
         </div>
-        <div>
+        <div className="flex justify-center">
           <MainCourseMeal />
         </div>
-        <div>
+        <div className="flex justify-center">
           <SaladCourseMeal />
         </div>
-        <div>
+        <div className="flex justify-center">
           <DesertMeal />
         </div>
       </div>

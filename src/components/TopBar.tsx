@@ -31,7 +31,7 @@ export const TopBar = () => {
           </a>
         </div>
         <div className="flex gap-5 items-center">
-          <div className="flex py-2 px-4 gap-3 items-center border-black border rounded-md">
+          <div className="flex py-2 px-4 gap-3 items-center border rounded-md">
             <SearchIcon />
             <input className="" type="search" placeholder="Хайх"></input>
           </div>
