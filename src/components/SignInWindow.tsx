@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import { EyeOff } from "@/svg/EyeOff";
+import { useFormik } from "formik";
 
 export const SignInWindow = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  // const formik= useFormik({})
 
   return (
     <div className="flex flex-col  items-center p-9 gap-[48px]">
@@ -37,15 +40,19 @@ export const SignInWindow = () => {
         </div>
       </div>
       <div className="flex flex-col gap-9">
-        <div className="flex w-[385px] h-10 bg-stone-100 rounded-sm justify-center items-center">
-          <button className="">Нэвтрэх</button>
+        <div className="">
+          <button className="flex w-[385px] h-10 bg-stone-100 rounded-sm justify-center items-center">
+            Нэвтрэх
+          </button>
         </div>
         <div className="flex justify-center items-center">
           <p className="text-sm ">Эсвэл</p>
         </div>
-        <div className="flex w-[385px] h-10 rounded-sm border-green-400 border justify-center items-center">
+        <div className="">
           <a href="./signup">
-            <button className="">Бүртгүүлэх</button>
+            <button className="flex w-[385px] h-10 rounded-sm border-green-400 border justify-center items-center">
+              Бүртгүүлэх
+            </button>
           </a>
         </div>
       </div>

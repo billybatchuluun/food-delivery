@@ -6,6 +6,7 @@ import * as Yup from "yup";
 import { signUpValidation } from "@/pages/signUpValidation";
 
 export const RegisterWindow = () => {
+  const router = useRouter();
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
@@ -22,25 +23,26 @@ export const RegisterWindow = () => {
   });
 
   const signUpUser = async () => {
-    // try {
-    //   if (password === rePassword) {
-    //     const user = {
-    //       email,
-    //       name,
-    //       password,
-    //     };
-    //     const res = await fetch("http://localhost:8080/signup", {
-    //       method: "POST",
-    //       headers: { "Content-Type": "application/json" },
-    //       body: JSON.stringify(user),
-    //     });
-    //     console.log(res);
-    //     router.push("/login");
-    //   }
-    // } catch (error) {
-    //   console.error(error);
-    // }
+    try {
+      const user = {
+        name: values.name,
+        email: values.email,
+        password: values.password,
+      };
+      console.log(user);
+      const res = await fetch("http://localhost:8080/signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(user),
+      });
+      if (res.status === 201) {
+        return router.push("./login");
+      }
+    } catch (error) {
+      console.error(error);
+    }
   };
+
   return (
     <>
       <div className="flex flex-col p-9 gap-[48px]">
@@ -128,8 +130,11 @@ export const RegisterWindow = () => {
             <label>Үйлчилгээний нөхцөл зөвшөөрөх</label>
           </div>
           <div className="flex flex-col gap-9">
-            <div className="flex w-[385px] h-10 bg-stone-100 rounded-sm justify-center items-center">
-              <button onClick={signUpUser} className="">
+            <div className="">
+              <button
+                onClick={signUpUser}
+                className="flex w-[385px] h-10 bg-stone-100 rounded-sm justify-center items-center"
+              >
                 Бүртгүүлэх
               </button>
             </div>
