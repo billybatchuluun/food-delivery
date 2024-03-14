@@ -1,12 +1,43 @@
 import React, { useState } from "react";
 import { EyeOff } from "@/svg/EyeOff";
-import { useFormik } from "formik";
+import { useFormik, validateYupSchema } from "formik";
+import { signInValidation } from "@/pages/signInValidation";
+import { useRouter } from "next/router";
 
 export const SignInWindow = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const router = useRouter();
+  const { values, errors, handleChange, handleBlur, handleSubmit } = useFormik({
+    initialValues: {
+      email: "",
+      password: "",
+    },
+    validationSchema: signInValidation,
+    onSubmit: () => {},
+  });
 
-  // const formik= useFormik({})
+  const signInUser = async () => {
+    try {
+      const user = {
+        email: values.email,
+        password: values.password,
+      };
+      console.log(user);
+
+      const res = await fetch("http://localhost:8080/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(user),
+      });
+      console.log(res);
+      if (res.status === 200) {
+        return router.push("/");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <div className="flex flex-col  items-center p-9 gap-[48px]">
@@ -19,6 +50,10 @@ export const SignInWindow = () => {
             <label>И-мэйл </label>
 
             <input
+              id="email"
+              value={values.email}
+              onChange={handleChange}
+              onBlur={handleBlur}
               className="w-[385px] h-10 bg-stone-100 rounded-sm pl-5 "
               type="search"
               placeholder="И-мэйл хаягаа оруулна уу"
@@ -28,6 +63,10 @@ export const SignInWindow = () => {
             <label>Нууц үг </label>
             <div className="flex w-[385px] h-10 bg-stone-100 rounded-sm px-5 justify-between items-center">
               <input
+                id="password"
+                value={values.password}
+                onChange={handleChange}
+                onBlur={handleBlur}
                 className="w-[385px] h-10 bg-stone-100"
                 type="search"
                 placeholder="Нууц үг"
@@ -41,7 +80,10 @@ export const SignInWindow = () => {
       </div>
       <div className="flex flex-col gap-9">
         <div className="">
-          <button className="flex w-[385px] h-10 bg-stone-100 rounded-sm justify-center items-center">
+          <button
+            onClick={signInUser}
+            className="flex w-[385px] h-10 bg-stone-100 rounded-sm justify-center items-center"
+          >
             Нэвтрэх
           </button>
         </div>
