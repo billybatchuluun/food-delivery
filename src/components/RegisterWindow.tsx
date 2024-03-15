@@ -24,7 +24,6 @@ export const RegisterWindow = () => {
 
   const signUpUser = async () => {
     try {
-      z`13685`;
       const user = {
         name: values.name,
         email: values.email,
